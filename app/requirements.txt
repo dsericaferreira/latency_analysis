@@ -1,0 +1,8 @@
+pandas
+datetime
+trycourier
+seaborn
+numpy
+scikit-learn
+scipy
+matplotlib
