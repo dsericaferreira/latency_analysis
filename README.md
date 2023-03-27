@@ -33,9 +33,9 @@
    em clusters e interpretarmos as labels de cada cluster. No caso, analisamos em ordem crescente de média de 
    latência as labels e chegamos aos seguintes clusters: Boa, Ruim, Péssima. 
    
-4. Considerei a latência como ruim e péssima já que alguns pontos encontravam-se muito mais dispersos, mas que já que esses
-   não foram considerados outliers, decidi que, na ausência do status do produto, considerar essas latências seria mais 
-   interessante e para pontos muito mais afastados, considerei a latência como péssima.
+4. Considerei a latência como Boa, Ruim e Péssima. Mas Péssima?? Já que alguns pontos encontravam-se muito mais dispersos, mas não 
+   foram considerados outliers, decidi que (na ausência do status do produto oud e outra feature), considerar essas latências seria mais 
+   interessante e, para pontos muito mais afastados, considerei a latência como péssima apenas para esse caso.
 
 5. Analisar centroides: Calculei os centroides de cada grupo - centros geométricos - e gerei um dataset de 
    centroides, latências, time e labels. A ideia é que ao termos novos valores de latência, possamos calcular 
