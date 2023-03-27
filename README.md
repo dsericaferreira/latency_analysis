@@ -52,7 +52,7 @@
    Optei nesse caso por email e a lógica ficou para que - ao termos uma latência com uma classificação diferente de 'Boa', 
    seja enviada uma notificação. 
    Deixei o layout da mensagem com essa formatação:
-   <img width="400" alt="Courier Template" src="https://user-images.githubusercontent.com/101155921/227825215-f41d3fe1-2a1e-42ac-a90c-950f2f77d599.png">
+   <img width="650" alt="Courier Template" src="https://user-images.githubusercontent.com/101155921/227825215-f41d3fe1-2a1e-42ac-a90c-950f2f77d599.png">
 
        
    <h4>Caso queira testar o módulo de notificação, no código, é necessário um cadastro em: https://app.courier.com
