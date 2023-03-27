@@ -56,8 +56,6 @@ class Model():
             dataset['time']  = [time.hour * 3600 + time.minute * 60 + time.second for \
                         time in dataset['time']]
             dataset['latencies'] = [str(x).split(',') for x in list(dataset['latencies'])]
-            #dataset['latencies'].str.split(',')
-            print(dataset)
             dataset = dataset.explode('latencies').reset_index()
             dataset = dataset.drop(['index'], axis=1)
             dataset['latencies'] = dataset['latencies'].astype('float')
@@ -79,16 +77,14 @@ class Model():
         centroids = pd.DataFrame(columns = dataset.columns)
 
         for i in range(0,3):
-            #aux = np.mean(dataset[dataset['labels']==i])
             s = pd.Series(np.mean(dataset[dataset['labels']==i], axis=0), index=centroids.columns)
             centroids.loc[len(centroids)] = s
-            print(s)
         
         centroids['Cluster'] = centroids['labels'].replace(dict)
 
         return centroids
 
-    def run(self):
+    def get_centroids(self):
 
         self.dataset = pd.read_excel('latencies by service.xlsx')
 
@@ -99,3 +95,22 @@ class Model():
         self.centroids = self.generate_centroids(self.prepared_data)
 
         self.centroids.to_excel('centroids.xlsx')
+
+        return self.centroids
+    
+    def get_cluster(self, latency, time):
+    
+        self.centroids = pd.read_excel('centroids.xlsx')
+
+        self.minima = float('inf')
+        self.cluster = str()
+        for i in range(len(self.centroids)):
+            self.point2 = np.array([latency, time])
+            self.point1 = np.array([self.centroids['latencies'][i], self.centroids['time'][i]])
+            self.distance = np.sqrt(np.sum((self.point2 - self.point1)**2))
+        
+            if self.distance<self.minima:
+                self.minima = self.distance
+                self.cluster = self.centroids['Cluster'][i]
+        
+        return self.cluster
