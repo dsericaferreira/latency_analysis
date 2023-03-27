@@ -34,7 +34,7 @@
    latência as labels e chegamos aos seguintes clusters: Boa, Ruim, Péssima. 
    
 4. Considerei a latência como Boa, Ruim e Péssima. Mas Péssima?? Já que alguns pontos encontravam-se muito mais dispersos, mas não 
-   foram considerados outliers, decidi que (na ausência do status do produto oud e outra feature), considerar essas latências seria mais 
+   foram considerados outliers, decidi que (na ausência do status do produto ou de outra feature), considerar essas latências seria mais 
    interessante e, para pontos muito mais afastados, considerei a latência como péssima apenas para esse caso.
 
 5. Analisar centroides: Calculei os centroides de cada grupo - centros geométricos - e gerei um dataset de 
